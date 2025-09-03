@@ -10,8 +10,7 @@ Sleep is a complex biological process with important genetic and molecular under
 ## 🔍 Dataset  
 We are analyzing the following dataset:  
 👉 [Dataset Link](https://www.refine.bio/experiments/SRP181622/rem-sleeps-unique-associations-with-corticosterone-regulation-apoptotic-pathways-and-behavior-in-chronic-stress-in-mice?ref=search)  
-
-The dataset explores how **chronic mild stress affects sleep and behavior in mice**. Over the course of 9 weeks, researchers measured sleep patterns, stress hormones, physical health markers, and behavior, while also analyzing brain and blood samples. The findings highlight that **REM sleep** (the dream stage of sleep) is especially sensitive to stress, linking it to changes in stress regulation, immune responses, and mood-related behaviors.
+The dataset looks at how **chronic mild stress changes sleep in mice**. It shows that **REM sleep is especially sensitive to stress**, linking it to shifts in stress hormones, immune responses, and behavior.
 
 ## ❓ Research Question  
 Our guiding question is:  
