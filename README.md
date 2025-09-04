@@ -1,12 +1,12 @@
 # 🧬 Bioinformatic Baddies  
-*Exploring the science of sleep in *Mus musculus* with data-driven bioinformatics*  
+*Exploring the science of stress in *Mus musculus* with data-driven bioinformatics*  
 
 ## 📌 Project Overview  
 Welcome to the **Bioinformatic Baddies** repository!  
 
-Our goal is to analyze a curated dataset related to **sleep in *Mus musculus* (the common house mouse)** and answer a specific research question using modern bioinformatics techniques.  
+Our goal is to analyze a curated dataset related to **stress in *Mus musculus* (the common house mouse)** and answer a specific research question using modern bioinformatics techniques.  
 
-Sleep is a complex biological process with important genetic and molecular underpinnings. By working with real-world data, we aim to uncover patterns and insights that shed light on sleep regulation, variability, and biological mechanisms in mice — a widely used model organism in biomedical research.  
+Chronic stress is known to influence both **physical health** and **molecular pathways**. In mice, stress can lead to changes in **hair/coat condition** and **cortisol (stress hormone) regulation**, which are important markers of overall well-being. By studying these connections, we hope to uncover insights into how stress affects the body and brain. 
 
 ## 🔍 Dataset  
 We are analyzing the following dataset: 👉 [Dataset Link](https://www.refine.bio/experiments/SRP181622/rem-sleeps-unique-associations-with-corticosterone-regulation-apoptotic-pathways-and-behavior-in-chronic-stress-in-mice?ref=search)  
@@ -15,4 +15,4 @@ The dataset looks at how **chronic mild stress changes sleep in mice**. It shows
 
 ## ❓ Research Question  
 Our guiding question is:  
-**RESEARCH QUESTION HERE**  
+***"What are the differences in gene expression related to hair loss and cortisol levels in mice exposed to stress and those not exposed to stress?***  
