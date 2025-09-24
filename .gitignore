@@ -1,1 +1,9 @@
 SRP181622/
+.ipynb_checkpoints/
+.virtual_documents/
+anaconda_projects/
+check_data.py
+test.py
+
+# all tsv files
+*.tsv
