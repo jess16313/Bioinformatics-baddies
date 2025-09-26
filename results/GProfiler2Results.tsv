@@ -1,0 +1,6 @@
+query	significant	p_value	term_size	query_size	intersection_size	precision	recall	term_id	source	term_name	effective_domain_size	source_order	parents	evidence_codes	intersection
+query_1	TRUE	0.02560478405879852	4	42	2	0.047619047619047616	0.5	GO:0030043	GO:BP	actin filament fragmentation	25907	6631		IDA IBA IEA,IDA IBA	Cfl1,Dstn
+query_1	TRUE	0.04741373025786082	57	27	3	0.1111111111111111	0.05263157894736842	GO:0051893	GO:BP	regulation of focal adhesion assembly	25907	13783		ISO,IEA,IDA IMP IBA IEA	Cfl1,Actg1,Itgb1bp1
+query_1	TRUE	0.04741373025786082	57	27	3	0.1111111111111111	0.05263157894736842	GO:0090109	GO:BP	regulation of cell-substrate junction assembly	25907	17792		ISO,IEA,IDA IMP IBA IEA	Cfl1,Actg1,Itgb1bp1
+query_1	TRUE	0.04385947599326701	1	6	1	0.16666666666666666	1	GO:0031002	GO:CC	actin rod	26207	994		ISO	Cfl1
+query_1	TRUE	0.04385947599326701	1	6	1	0.16666666666666666	1	GO:0090732	GO:CC	cofilin-actin rod	26207	2818		ISO	Cfl1
