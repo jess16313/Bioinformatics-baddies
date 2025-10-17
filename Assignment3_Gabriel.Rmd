@@ -1,0 +1,179 @@
+---
+title: "Assingment3_Gabriel"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+Setup 
+```{r setup, warning=FALSE}
+
+```
+
+Install any necessary packages:
+
+```{r}
+#install.packages("matrixStats")
+#install.packages("mclust")
+```
+
+# Exercise 1
+
+Load the processed data into R:
+
+```{r}
+PATH_TO_FILE = "gene.tsv"
+df = read.delim(PATH_TO_FILE, sep= "\t", header = TRUE)
+```
+
+# Exercise 2
+
+Subset data to the 5000 most variable genes
+
+```{r}
+library(matrixStats)
+gene_var <- rowVars(as.matrix(df[,-1]))
+df_top5000 <- df[order(gene_var, decreasing = TRUE)[1:5000], ]
+```
+
+I Will be using *Gaussian mixture models* as my clustering algorithm
+
+```{r}
+library(mclust)
+# we need rows as samples to apply GMM, so we will transpose
+df_top5000_t = t(df_top5000[,-1])
+
+# Run GMM
+gmm_fit = Mclust(df_top5000_t)
+
+# Check model summary
+summary(gmm_fit)
+
+```
+
+As we can see in the output above, the chosen number of clusters is 9.
+We can alter this by changing the number of clusters the function tries,
+which I will do below:
+
+```{r}
+# 1:5
+gmm_alt_fit1 = Mclust(df_top5000_t, G = 1:5)
+summary(gmm_alt_fit1)
+
+# 9:15
+gmm_alt_fit2 = Mclust(df_top5000_t, G = 9:15)
+summary(gmm_alt_fit2)
+```
+
+From the output above, we see that if we experiment only with 1 to 5
+clusters, 5 is the number chosen by the function. However, if we
+experiment with 9 to 15, with 9 being the original number of clusters
+chosen, we get 13 as being the best fit. This leads me to think that 13
+is a better number of clusters than 9, as it subdivides the data further
+and maximizes BIC.
+
+Now we are asked to rerun the clustering method using 10, 100, 1000, and
+10000 genes. Let's start with 10:
+
+```{r}
+# run gmm on top 10
+gmm_fit_10 = Mclust(df_top5000_t[,1:10], G = 1:15)
+# Check model summary
+summary(gmm_fit_10)
+```
+
+Now 100:
+
+```{r}
+# run gmm on top 100
+gmm_fit_100 = Mclust(df_top5000_t[,1:100], G = 1:15)
+# Check model summary
+summary(gmm_fit_100)
+```
+
+Now 1000:
+
+```{r}
+# run gmm on top 1000
+gmm_fit_1000 = Mclust(df_top5000_t[,1:1000], G = 1:15)
+# Check model summary
+summary(gmm_fit_1000)
+```
+
+Now 10000:
+
+```{r}
+# get top 10000
+df_top10000 <- df[order(gene_var, decreasing = TRUE)[1:10000], ]
+df_top10000_t = t(df_top10000[,-1])
+
+# run gmm on top 10000
+gmm_fit_10000 = Mclust(df_top10000_t, G = 1:15)
+# Check model summary
+summary(gmm_fit_10000)
+```
+
+We are interested in understanding how the number of genes affects clustering.
+To determine this, we will perform a chi-squared test on each pair of clustering
+results (10, 100, 1000, 5000, and 10000 genes):
+
+
+```{r}
+# create a list containing all clustering results
+clust_10 = gmm_fit_10$classification
+clust_100 = gmm_fit_100$classification
+clust_1000 = gmm_fit_1000$classification
+clust_5000 = gmm_alt_fit2$classification
+clust_10000 = gmm_fit_10000$classification
+
+# compare 10 vs 100
+chisq.test(clust_10, clust_100)
+```
+
+```{r}
+# compare 10 vs 1000
+chisq.test(clust_10, clust_1000)
+```
+
+```{r}
+# compare 10 vs 5000
+chisq.test(clust_10, clust_5000)
+```
+
+```{r}
+# compare 10 vs 10000
+chisq.test(clust_10, clust_10000)
+```
+
+
+```{r}
+# compare 100 vs 1000
+chisq.test(clust_100, clust_1000)
+```
+
+```{r}
+# compare 100 vs 5000
+chisq.test(clust_100, clust_5000)
+```
+
+```{r}
+# compare 100 vs 10000
+chisq.test(clust_100, clust_10000)
+```
+
+```{r}
+# compare 1000 vs 5000
+chisq.test(clust_1000, clust_5000)
+```
+
+```{r}
+# compare 1000 vs 10000
+chisq.test(clust_1000, clust_10000)
+```
+
+```{r}
+# compare 5000 vs 10000
+chisq.test(clust_5000, clust_10000)
+```
+
+
